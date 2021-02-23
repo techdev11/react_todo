@@ -28,7 +28,7 @@ function App() {
   const listTodoTask = items.map((item, idx) => {
     return (
       <li key={idx} className='list_item'>
-        {item.taskName.toUpperCase()}
+        <div>{item.taskName.toUpperCase()}</div>
         <Button type="sumbit" text="Complete Task" clickHandler={() => deleteItem(idx)} />
       </li>
     )

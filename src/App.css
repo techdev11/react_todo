@@ -29,4 +29,5 @@ ul li {
 .list_item {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
