@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Input from './components/Input'
 import Button from './components/Button'
 
+import './App.css';
+
 function App() {
   const [value, setValue] = useState("");
   const [items, setItems] = useState([]);
@@ -25,16 +27,26 @@ function App() {
 
   const listTodoTask = items.map((item, idx) => {
     return (
-      <li key={idx} onClick={() => deleteItem(idx)}>{item.taskName}</li>
+      <li key={idx} className='list_item'>
+        {item.taskName.toUpperCase()}
+        <Button type="sumbit" text="Complete Task" clickHandler={() => deleteItem(idx)} />
+      </li>
     )
   })
 
+  const classAssigned = `App ${items.length <= 0 ? "no_border" : ""}`
+
   return (
-    <div className="App">
-      <Input placeholder='Enter Item to add' value={value} changeHandler={changeHandler} />
-      <Button type="submit" text="Add Item" clickHandler={addItemHandler} />
-      {items.length > 0 && (<ul> {listTodoTask}</ul>)}
-    </div>
+    <div>
+      <h3>Tasks To Do</h3>
+      <div className="App">
+        <Input placeholder='Enter Item to add' value={value} changeHandler={changeHandler} />
+        <Button type="submit" text="Add Item" clickHandler={addItemHandler} />
+      </div>
+      <div className={classAssigned} >
+        {items.length > 0 && (<ul> {listTodoTask}</ul>)}
+      </div>
+    </div >
   );
 }
 

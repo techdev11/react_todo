@@ -1,8 +1,10 @@
 import React from "react";
 
+import "./input.css";
+
 const Input = props => {
 	return (
-		<div>
+		<div className="Input">
 			<input
 				value={props.value}
 				placeholder={props.placeholder}

@@ -1,11 +1,13 @@
 import React from "react";
 
-const Input = props => {
+import "./button.css";
+
+const Button = props => {
 	return (
-		<div>
+		<div className="btn_primary">
 			<button onClick={props.clickHandler}>{props.text}</button>
 		</div>
 	);
 };
 
-export default Input;
+export default Button;
